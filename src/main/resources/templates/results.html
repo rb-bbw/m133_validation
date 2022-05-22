@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Results</title>
+</head>
+<body>
+    <table th:object="${personForm}">
+        <tr>
+            <td>Name:</td>
+            <td th:text="*{name}" />
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td th:text="*{age}" />
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td th:text="*{email}" />
+        </tr>
+    </table>
+</body>
+</html>
