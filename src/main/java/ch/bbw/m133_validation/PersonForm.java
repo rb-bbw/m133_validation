@@ -1,16 +1,19 @@
 package ch.bbw.m133_validation;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class PersonForm {
-    @NotNull
-    @Size(min=3, max=30)
+    @NotBlank // not null or whitespace
     private String name;
-    @NotNull
-    @Min(18)
+    @NotNull(message = "Age must be entered")
+    @Min(value = 18, message = "{valid.age.min}")
+    @Max(140)
     private Integer age;
+    @NotBlank
+    @Email // no email is a valid one unless @NotBlank is added
+    private String email;
+
+
     public String getName() {
         return this.name;
     }
@@ -22,6 +25,12 @@ public class PersonForm {
     }
     public void setAge(Integer age) {
         this.age = age;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String toString() {
